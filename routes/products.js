@@ -10,7 +10,7 @@ const FILE_TYPE_MAP = {
     'image/jpeg': 'jpeg',
     'image/jpg': 'jpg'
 };
-
+//storage
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const isValid = FILE_TYPE_MAP[file.mimetype];
@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
 });
 
 const uploadOptions = multer({ storage: storage });
-
+//call api products 
 router.get(`/`, async (req, res) => {
     let filter = {};
     if (req.query.categories) {
